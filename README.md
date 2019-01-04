@@ -8,7 +8,8 @@ Productionには[これ](https://reactjs.org/docs/optimizing-performance.html#us
 
 * ガイドでは、npm installにバージョンを指定しているが、指定せずに最新版を取ってきても動作した
 * @babel/core等の'@''/'は重要（babel-coreでは異なるバージョンを取ってくる）
-  
+
+## Initial Commitのpackage.json, package-lock.jsonは下記npmで生成したもの  
 1. $ npm init -y
 2. $ npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/preset-react
 ```
@@ -37,3 +38,16 @@ Productionには[これ](https://reactjs.org/docs/optimizing-performance.html#us
 ```
 + react-hot-loader@4.6.3
 ```
+
+## ESLintの設定
+* parserが標準eslintでは、"Parsing error: Unexpected token ="などがでる。babel-eslintに変更(.eslint.rc)
+
+6. $ npm install --save-dev eslint eslint-config-standard eslint-plugin-react eslint-plugin-standard eslint-plugin-node eslint-plugin-promise eslint-plugin-import babel-eslint
+
+* .eslintrc.js　TopレベルのecmaFeaturesはDeprecated。`parserOptions`等へ移動させる https://eslint.org/docs/user-guide/migrating-to-2.0.0
+
+## yarnへの移行
+
+* プロジェクトルートで `$ yarn`実行
+* 念のため、`node_modules`を削除して、`$ yarn install`も実行
+
