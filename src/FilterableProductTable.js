@@ -83,7 +83,8 @@ class ProductTable extends React.Component {
     let lastCategory = null
     // console.log(this.props.products)
     this.props.products.forEach((product) => {
-      if (product.name.indexOf(this.props.filterText) === -1) {
+      // if (product.name.indexOf(this.props.filterText) === -1) {
+      if (!product.name.includes(this.props.filterText)) {
         // console.log(product.name)
         return
       }
